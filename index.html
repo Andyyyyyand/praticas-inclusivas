@@ -1,16 +1,416 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Práticas Inclusivas</title>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Práticas Inclusivas</title>
   <meta name="description" content="Banco de ideias e práticas pedagógicas para apoiar crianças com dificuldades de aprendizagem, transtornos de comportamento e deficiências.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/style.css">
-</head>
-<body>
+  <script>try{var t=localStorage.getItem("pi-tema");if(t==="light"||t==="dark")document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+  <style>
+:root {
+  --papel: #fffdf7;
+  --grade: #e6eef5;
+  --tinta: #243056;
+  --tinta-suave: #5d6788;
+  --cartao: #ffffff;
+  --linha: #e4e1d6;
+  --pauta: #d8e6f3;
+  --margem: #f3a9a0;
+  --rodape: #243056;
+  --rodape-texto: #e9ecf6;
+
+  --c-coral: #ec6a5c;
+  --c-sol: #f2b134;
+  --c-menta: #33a37f;
+  --c-ceu: #4a8fdb;
+  --c-lilas: #9677d6;
+  --c-tangerina: #ef8a3a;
+  --c-rosa: #e0659a;
+  --c-turquesa: #22a3a6;
+
+  /* Versões das cores para TEXTO (contraste mínimo 4,5:1 sobre o fundo do tema) */
+  --c-coral-ink: #be2616;
+  --c-sol-ink: #8a5e09;
+  --c-menta-ink: #226e56;
+  --c-ceu-ink: #2263ab;
+  --c-lilas-ink: #7248c8;
+  --c-tangerina-ink: #9e4d0d;
+  --c-rosa-ink: #b62563;
+  --c-turquesa-ink: #176e70;
+  --on-ink: #ffffff;            /* texto sobre fundo na cor -ink */
+  --botao-bg: #c4372a;
+  --botao-fg: #ffffff;
+  --coral-titulo: #e45a49;      /* coral dos títulos grandes (mín. 3:1) */
+
+  --raio: 20px;
+  --sombra: 0 1px 0 var(--linha), 0 10px 24px -14px rgba(36, 48, 86, .28);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papel: #1c2622; --grade: #24312c; --tinta: #eef2ea; --tinta-suave: #a9b6ae;
+    --cartao: #24302b; --linha: #34423c; --pauta: #34423c; --margem: #8f4b45;
+    --rodape: #141c19; --rodape-texto: #cfd8d2;
+    --sombra: 0 1px 0 var(--linha), 0 10px 24px -14px rgba(0, 0, 0, .6);
+    --c-coral-ink: #f39e95; --c-sol-ink: #f3b641; --c-menta-ink: #55caa5; --c-ceu-ink: #8eb9e9;
+    --c-lilas-ink: #beabe6; --c-tangerina-ink: #f3a96f; --c-rosa-ink: #eb9dbf; --c-turquesa-ink: #2acbcf;
+    --on-ink: #10201a; --botao-bg: #f4887a; --botao-fg: #1a1210; --coral-titulo: #ec6a5c;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --papel: #1c2622; --grade: #24312c; --tinta: #eef2ea; --tinta-suave: #a9b6ae;
+  --cartao: #24302b; --linha: #34423c; --pauta: #34423c; --margem: #8f4b45;
+  --rodape: #141c19; --rodape-texto: #cfd8d2;
+  --sombra: 0 1px 0 var(--linha), 0 10px 24px -14px rgba(0, 0, 0, .6);
+  --c-coral-ink: #f39e95; --c-sol-ink: #f3b641; --c-menta-ink: #55caa5; --c-ceu-ink: #8eb9e9;
+  --c-lilas-ink: #beabe6; --c-tangerina-ink: #f3a96f; --c-rosa-ink: #eb9dbf; --c-turquesa-ink: #2acbcf;
+  --on-ink: #10201a; --botao-bg: #f4887a; --botao-fg: #1a1210; --coral-titulo: #ec6a5c;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font: 17px/1.6 "Nunito", system-ui, sans-serif;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 16px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+h1, h2, h3 { font-family: "Fredoka", "Nunito", system-ui, sans-serif; font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+h2 { font-size: clamp(26px, 4vw, 32px); }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible { outline: 3px solid var(--c-ceu); outline-offset: 2px; }
+
+/* Hero: papel quadriculado */
+.hero {
+  position: relative; overflow: hidden;
+  padding-block: 56px 64px;
+  background-color: var(--papel);
+  background-image:
+    linear-gradient(var(--grade) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grade) 1px, transparent 1px);
+  background-size: 26px 26px;
+  border-bottom: 2px dashed var(--linha);
+}
+.hero-inner { position: relative; display: grid; gap: 14px; }
+.rabisco {
+  margin: 0; font-family: "Caveat", cursive; font-size: 26px; font-weight: 700;
+  color: var(--coral-titulo); transform: rotate(-2deg); transform-origin: left;
+}
+h1 { font-size: clamp(42px, 8vw, 76px); font-weight: 700; letter-spacing: -.01em; }
+.destaque { position: relative; display: inline-block; color: var(--coral-titulo); }
+.destaque svg { position: absolute; left: 0; bottom: -.12em; width: 100%; height: .28em; }
+.lead { max-width: 58ch; margin: 6px 0 10px; font-size: 19px; color: var(--tinta-suave); }
+
+.search {
+  position: relative; max-width: 620px;
+}
+.search svg { position: absolute; left: 18px; top: 50%; width: 22px; height: 22px; transform: translateY(-50%); color: var(--tinta-suave); }
+.search input {
+  width: 100%; padding: 16px 18px 16px 52px; font: inherit; font-size: 17px;
+  color: var(--tinta); background: var(--cartao);
+  border: 2px solid var(--tinta); border-radius: 999px;
+  box-shadow: 4px 4px 0 var(--tinta);
+}
+.search input::placeholder { color: var(--tinta-suave); }
+.btn-buscar {
+  position: absolute; right: 8px; top: 50%; translate: 0 -50%;
+  font: inherit; font-weight: 800; font-size: 16px; cursor: pointer;
+  padding: 9px 18px; border-radius: 999px; border: 0;
+  background: var(--botao-bg); color: var(--botao-fg);
+}
+.hero-inner { position: relative; }
+.sugestoes {
+  position: relative; z-index: 5; max-width: 620px; margin-top: 4px;
+  background: var(--cartao); border: 2px solid var(--tinta); border-radius: 18px;
+  box-shadow: 4px 4px 0 var(--tinta); overflow: hidden;
+}
+.sugestao {
+  display: grid; gap: 2px; width: 100%; text-align: left; cursor: pointer;
+  font: inherit; color: var(--tinta); background: transparent; border: 0;
+  border-bottom: 1px solid var(--linha);
+  padding: 12px 16px 12px 34px; position: relative;
+}
+.sugestao::before { content: ""; position: absolute; left: 14px; top: 20px; width: 10px; height: 10px; border-radius: 50%; background: var(--cor); }
+.sugestao:hover, .sugestao:focus-visible { background: color-mix(in srgb, var(--cor) 12%, var(--cartao)); outline: none; }
+.sugestao-titulo { font-weight: 800; }
+.sugestao-info { font-size: 14px; color: var(--tinta-suave); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sugestao-todas {
+  width: 100%; cursor: pointer; font: inherit; font-weight: 800; padding: 12px 16px; border: 0;
+  background: var(--c-sol); color: #243056; text-align: center;
+}
+.sugestao-todas:focus-visible { outline: 3px solid var(--c-ceu); outline-offset: -3px; }
+.sugestao-vazia { margin: 0; padding: 14px 16px; color: var(--tinta-suave); font-weight: 700; }
+
+.atalhos { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; max-width: 720px; }
+.atalhos[hidden] { display: none; }
+.atalhos-rotulo { font-family: "Caveat", cursive; font-size: 22px; font-weight: 700; color: var(--tinta-suave); margin-right: 2px; }
+.atalho {
+  font: inherit; font-size: 14px; font-weight: 700; cursor: pointer;
+  padding: 5px 12px; border-radius: 999px;
+  border: 1.5px dashed var(--tinta-suave); background: var(--cartao); color: var(--tinta);
+}
+.atalho:hover { border-style: solid; border-color: var(--c-coral-ink); color: var(--c-coral-ink); }
+
+.card.destacado { animation: destaque 1.6s ease-out; }
+@keyframes destaque { 0%, 30% { box-shadow: 0 0 0 4px var(--cor), var(--sombra); } 100% { box-shadow: var(--sombra); } }
+@media (prefers-reduced-motion: reduce) { .card.destacado { animation: none; outline: 3px solid var(--cor); } }
+
+.deco { position: absolute; width: 44px; height: 44px; opacity: .9; animation: flutua 7s ease-in-out infinite; }
+.deco-1 { top: 36px; right: 10%; }
+.deco-2 { top: 150px; right: 22%; width: 34px; height: 34px; animation-delay: -2s; }
+.deco-3 { bottom: 34px; right: 6%; width: 52px; height: 52px; animation-delay: -4s; }
+.deco-4 { bottom: 90px; right: 32%; width: 28px; height: 28px; animation-delay: -1s; transform: rotate(12deg); }
+@keyframes flutua { 0%, 100% { translate: 0 0; rotate: 0deg; } 50% { translate: 0 -10px; rotate: 8deg; } }
+@media (max-width: 760px) { .deco-2, .deco-4 { display: none; } .deco-1 { top: 18px; right: 16px; width: 30px; height: 30px; } .deco-3 { bottom: 14px; right: 16px; width: 34px; height: 34px; } }
+@media (prefers-reduced-motion: reduce) { .deco { animation: none; } }
+
+/* Boas-vindas: folha de caderno pautada */
+.boas-vindas { margin-top: -28px; position: relative; }
+.folha {
+  position: relative; max-width: 820px;
+  padding: 30px 28px 26px 64px;
+  background-color: var(--cartao);
+  background-image: repeating-linear-gradient(transparent 0 31px, var(--pauta) 31px 32px);
+  background-position: 0 27px;
+  border-radius: 6px 6px var(--raio) var(--raio);
+  box-shadow: var(--sombra);
+  line-height: 32px;
+}
+.folha::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 44px;
+  width: 2px; background: var(--margem);
+}
+.folha::after {
+  content: ""; position: absolute; top: -12px; left: 50%; translate: -50% 0;
+  width: 120px; height: 26px; rotate: 2deg;
+  background: color-mix(in srgb, var(--c-sol) 55%, transparent);
+}
+.folha h2 { font-size: 26px; line-height: 32px; margin: 0 0 0; color: var(--c-menta-ink); }
+.folha p { margin: 0 0 0; max-width: 64ch; }
+.folha p + p { margin-top: 32px; }
+.folha h2 + p { margin-top: 0; }
+.assinatura {
+  font-family: "Caveat", cursive; font-size: 28px; font-weight: 700;
+  color: var(--coral-titulo); text-align: right; margin-top: 16px !important; max-width: none !important;
+}
+
+/* Propósito */
+.proposito { position: relative; margin: 72px auto 0; max-width: 860px; text-align: center; }
+.proposito::before {
+  content: "\201C"; display: block; height: 56px;
+  font-family: "Fredoka", Georgia, serif; font-size: 110px; line-height: 1; color: var(--c-coral);
+}
+.proposito blockquote {
+  margin: 0; font-family: "Fredoka", "Nunito", system-ui, sans-serif; font-weight: 500;
+  font-size: clamp(24px, 3.6vw, 34px); line-height: 1.35; text-wrap: balance;
+}
+.proposito mark {
+  color: inherit; padding: 0 .1em; border-radius: 6px;
+  background: linear-gradient(transparent 45%, color-mix(in srgb, var(--c-sol) 55%, transparent) 45% 92%, transparent 92%);
+}
+.proposito figcaption { margin-top: 12px; font-family: "Caveat", cursive; font-size: 26px; font-weight: 700; color: var(--c-menta-ink); }
+
+/* Lista de práticas */
+.praticas { margin-top: 64px; }
+.praticas-topo { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px; }
+.count { margin: 0; color: var(--tinta-suave); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 20px 0 36px; }
+.chip {
+  --cor: var(--tinta);
+  --cor-ink: var(--tinta);
+  display: inline-flex; align-items: center; gap: 8px;
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+  padding: 7px 16px; border-radius: 999px;
+  border: 2px solid var(--linha); background: var(--cartao); color: var(--tinta);
+  transition: transform .15s, border-color .15s;
+}
+.chip::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--cor); }
+.chip:hover { border-color: var(--cor); transform: translateY(-1px); }
+.chip[aria-pressed="true"] { background: var(--cor-ink); border-color: var(--cor-ink); color: var(--on-ink); }
+.chip[aria-pressed="true"]::before { background: var(--on-ink); }
+
+.grid { display: grid; gap: 34px 22px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); align-items: start; }
+.card {
+  --cor: var(--c-ceu);
+  position: relative;
+  background: var(--cartao); border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 26px 22px 18px;
+  transition: transform .2s, box-shadow .2s;
+}
+.card:hover { transform: translateY(-3px); }
+.card::before {
+  content: ""; position: absolute; top: -16px; right: 26px;
+  width: 64px; height: 22px; rotate: 6deg;
+  background: color-mix(in srgb, var(--cor) 45%, transparent);
+}
+.tag {
+  display: inline-block; font-size: 13px; font-weight: 800; letter-spacing: .03em; text-transform: uppercase;
+  color: var(--cor-ink);
+}
+.card h3 { font-size: 22px; margin: 6px 0 4px; }
+.publico { color: var(--tinta-suave); font-size: 15px; margin: 0 0 12px; }
+.situacao {
+  margin: 0; padding: 12px 14px; border-radius: 12px;
+  background: color-mix(in srgb, var(--cor) 11%, var(--cartao));
+  font-size: 16px;
+}
+.situacao b { display: block; font-family: "Caveat", cursive; font-size: 22px; line-height: 1; color: var(--cor-ink); margin-bottom: 4px; }
+details { margin-top: 14px; }
+summary {
+  cursor: pointer; list-style: none; display: inline-flex; align-items: center; gap: 8px;
+  font-weight: 800; color: var(--cor-ink); padding: 4px 0;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; background: var(--cor-ink); color: var(--on-ink); font-size: 16px; line-height: 1; transition: rotate .2s; }
+details[open] summary::after { rotate: 45deg; }
+details ol { list-style: none; counter-reset: passo; padding: 0; margin: 12px 0 14px; display: grid; gap: 10px; }
+details li { counter-increment: passo; display: grid; grid-template-columns: 28px 1fr; gap: 10px; align-items: start; }
+details li::before {
+  content: counter(passo); display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%;
+  border: 2px solid var(--cor-ink); color: var(--cor-ink); font-weight: 800; font-size: 14px;
+}
+.meta { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 0; padding-top: 12px; border-top: 2px dashed var(--linha); font-size: 14px; color: var(--tinta-suave); }
+.meta b { color: var(--tinta); }
+
+.empty { color: var(--tinta-suave); text-align: center; padding: 32px 0; font-weight: 700; }
+
+/* Galeria */
+.galeria-sec { margin-top: 72px; }
+.sec-lead { color: var(--tinta-suave); margin: 6px 0 22px; }
+.galeria { display: grid; gap: 18px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); }
+.galeria figure { margin: 0; padding: 10px 10px 4px; background: var(--cartao); box-shadow: var(--sombra); border-radius: 4px; }
+.galeria figure:nth-child(odd) { rotate: -1.2deg; }
+.galeria figure:nth-child(even) { rotate: 1deg; }
+.galeria img { display: block; width: 100%; max-width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.galeria figcaption { padding: 6px 4px; font-family: "Caveat", cursive; font-size: 21px; text-align: center; }
+
+/* Chamada para sugestões */
+.cta { margin-top: 72px; padding: 32px 24px; border-radius: var(--raio); text-align: center; background: color-mix(in srgb, var(--c-sol) 22%, var(--cartao)); }
+.cta p { margin: 8px 0 20px; color: var(--tinta-suave); }
+.btn {
+  display: inline-block; padding: 12px 24px; border-radius: 999px; font-weight: 800; text-decoration: none;
+  background: var(--botao-bg); color: var(--botao-fg); border: 2px solid var(--tinta); box-shadow: 3px 3px 0 var(--tinta);
+}
+
+/* Rodapé */
+.footer { margin-top: 80px; background: var(--rodape); color: var(--rodape-texto); padding-block: 28px; }
+.footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.footer p { margin: 0; }
+.insta {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+  background: #b62563; color: #ffffff; font-weight: 800; text-decoration: none;
+}
+
+@media (max-width: 560px) {
+  .hero { padding-block: 76px 56px; }
+  .search input { font-size: 16px; padding-right: 100px; }
+  .btn-buscar { padding: 8px 14px; }
+  .folha { padding: 26px 18px 22px 40px; }
+  .folha::before { left: 26px; }
+  .chips { flex-wrap: nowrap; overflow-x: auto; margin-inline: -16px; padding: 4px 16px 8px; scrollbar-width: none; }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip { flex: 0 0 auto; }
+}
+.insta.insta-breve { background: transparent; border: 2px dashed var(--rodape-texto); color: var(--rodape-texto); }
+
+/* Letras animadas ao passar o mouse */
+.palavra { display: inline-block; white-space: nowrap; }
+.letra { display: inline-block; transition: transform .25s cubic-bezier(.3, 1.8, .5, 1), color .2s; }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  h1 .letra:hover, main h2 .letra:hover { transform: translateY(-.18em) rotate(-8deg) scale(1.15); }
+  h1 .letra:nth-child(4n+1):hover, main h2 .letra:nth-child(4n+1):hover { color: var(--c-coral-ink); }
+  h1 .letra:nth-child(4n+2):hover, main h2 .letra:nth-child(4n+2):hover { color: var(--c-sol-ink); }
+  h1 .letra:nth-child(4n+3):hover, main h2 .letra:nth-child(4n+3):hover { color: var(--c-ceu-ink); }
+  h1 .letra:nth-child(4n):hover, main h2 .letra:nth-child(4n):hover { color: var(--c-lilas-ink); }
+  h1 .destaque .letra:hover { color: var(--c-menta-ink); }
+
+  .card:hover h3 .letra { animation: onda .5s ease-in-out calc(var(--i) * 28ms); }
+  .card:hover h3 { color: var(--cor-ink); }
+  .card h3 { transition: color .2s; }
+}
+@keyframes onda {
+  0%, 100% { transform: translateY(0); }
+  45% { transform: translateY(-5px) rotate(-4deg); }
+}
+
+/* Animações para toque (celular) e ao aparecer na tela */
+@media (prefers-reduced-motion: no-preference) {
+  .onda .letra { animation: onda .6s ease-in-out calc(var(--i) * 35ms); }
+  h1 .letra, main h2 .letra { -webkit-tap-highlight-color: transparent; cursor: default; }
+  .letra.pula { animation: pulo .7s cubic-bezier(.3, 1.6, .5, 1); }
+}
+@keyframes pulo {
+  0% { transform: none; }
+  35% { transform: translateY(-.35em) rotate(-12deg) scale(1.25); color: var(--cor-pulo); }
+  70% { transform: translateY(.04em) rotate(4deg) scale(.95); color: var(--cor-pulo); }
+  100% { transform: none; }
+}
+
+/* Olhos: quantas pessoas leram */
+.card-topo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+.olhos { display: inline-flex; align-items: center; gap: 5px; font-size: 14px; font-weight: 700; color: var(--tinta-suave); white-space: nowrap; }
+.olhos[hidden] { display: none; }
+.olhos svg { width: 18px; height: 18px; color: var(--cor-ink); flex: none; }
+.olhos b { font-variant-numeric: tabular-nums; color: var(--tinta); }
+
+/* Acompanhe o projeto */
+.acompanhe {
+  display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 24px 32px; align-items: center;
+  margin: 72px 0 0; padding: 28px;
+  background: color-mix(in srgb, var(--c-menta) 13%, var(--cartao));
+  border: 2px solid var(--tinta); border-radius: var(--raio); box-shadow: 4px 4px 0 var(--tinta);
+}
+.acompanhe[hidden] { display: none; }
+.acompanhe h2 { margin: 0 0 6px; }
+.acompanhe p { margin: 0 0 16px; max-width: 52ch; color: var(--tinta-suave); }
+.btn-acompanhar {
+  display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+  font: inherit; font-weight: 800; font-size: 17px; padding: 12px 22px; border-radius: 999px;
+  background: var(--botao-bg); color: var(--botao-fg); border: 2px solid var(--tinta); box-shadow: 3px 3px 0 var(--tinta);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-acompanhar svg { width: 22px; height: 22px; }
+.btn-acompanhar:hover:not(:disabled) { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--tinta); }
+.btn-acompanhar:disabled { background: var(--c-menta-ink); color: var(--on-ink); cursor: default; }
+.acompanhe-numeros { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 20px 36px; justify-content: center; }
+.acompanhe-numeros[hidden], .acompanhe-numeros li[hidden] { display: none; }
+.acompanhe-numeros li { display: grid; gap: 2px; text-align: center; }
+.acompanhe-numeros b {
+  font-family: "Fredoka", "Nunito", system-ui, sans-serif; font-weight: 700; line-height: 1;
+  font-size: clamp(40px, 7vw, 56px); font-variant-numeric: tabular-nums; color: var(--c-coral-ink);
+}
+#bloco-visitas b { color: var(--c-ceu-ink); }
+.acompanhe-numeros span { font-weight: 700; color: var(--tinta-suave); }
+.acompanhe-numeros span svg { width: 18px; height: 18px; vertical-align: -3px; }
+@media (max-width: 700px) {
+  .acompanhe { grid-template-columns: minmax(0, 1fr); padding: 22px 18px; }
+  .acompanhe-numeros { justify-content: flex-start; }
+  .acompanhe-numeros li { text-align: left; }
+}
+
+/* Botão sol/lua */
+.tema-botao {
+  position: fixed; z-index: 40; top: calc(12px + env(safe-area-inset-top, 0px)); right: 12px;
+  width: 46px; height: 46px; display: grid; place-items: center; cursor: pointer;
+  border-radius: 50%; border: 2px solid var(--tinta); background: var(--cartao); color: var(--tinta);
+  box-shadow: 3px 3px 0 var(--tinta); transition: transform .15s;
+}
+.tema-botao:hover { transform: rotate(-12deg) scale(1.06); }
+.tema-botao svg { width: 24px; height: 24px; }
+.tema-botao .icone-sol { display: none; }
+.tema-botao[data-modo="dark"] .icone-sol { display: block; }
+.tema-botao[data-modo="dark"] .icone-lua { display: none; }
+@media (prefers-reduced-motion: reduce) { .tema-botao { transition: none; } }
+
+</style>
+
+  <button type="button" id="tema" class="tema-botao" aria-label="Mudar para o modo noturno" title="Modo diurno / noturno">
+    <svg class="icone-lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 14.2A8.5 8.5 0 0 1 9.8 3.5a8.5 8.5 0 1 0 10.7 10.7z" fill="currentColor"/></svg>
+    <svg class="icone-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 2.5v2.3M12 19.2v2.3M2.5 12h2.3M19.2 12h2.3M5.3 5.3 7 7M17 17l1.7 1.7M5.3 18.7 7 17M17 7l1.7-1.7"/></g></svg>
+  </button>
   <header class="hero">
     <svg class="deco deco-1" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="16" fill="var(--c-coral)"/></svg>
     <svg class="deco deco-2" viewBox="0 0 40 40" aria-hidden="true"><path d="M20 3 37 34H3Z" fill="var(--c-sol)"/></svg>
@@ -46,6 +446,24 @@
       <blockquote id="proposito-texto"></blockquote>
     </figure>
 
+    <section id="acompanhe" class="acompanhe" aria-labelledby="titulo-acompanhe" hidden>
+      <div class="acompanhe-texto">
+        <h2 id="titulo-acompanhe">Acompanhe o projeto</h2>
+        <p>Toque para mostrar que você acompanha as práticas. Isso não envia e-mail nem notificação: serve para sabermos que estamos no caminho certo.</p>
+        <button type="button" id="btn-acompanhar" class="btn-acompanhar" aria-pressed="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.3 2.8 4.5 6.5 4.5c2.1 0 3.9 1.1 5.5 3.1 1.6-2 3.4-3.1 5.5-3.1 3.7 0 5.6 3.8 4.1 7.3C19.500 16.400 12 21 12 21z" fill="currentColor"/></svg>
+          <span id="rotulo-acompanhar">Quero acompanhar</span>
+        </button>
+      </div>
+      <ul class="acompanhe-numeros" aria-live="polite">
+        <li id="bloco-acompanham" hidden><b id="n-acompanham"></b><span id="leg-acompanham"></span></li>
+        <li id="bloco-visitas" hidden>
+          <b id="n-visitas"></b>
+          <span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.500 12S5.500 5 12 5s10.500 7 10.500 7-4 7-10.500 7S1.500 12 1.500 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.200" fill="currentColor"/></svg> visitas ao site</span>
+        </li>
+      </ul>
+    </section>
+
     <section class="praticas" aria-labelledby="titulo-praticas">
       <div class="praticas-topo">
         <h2 id="titulo-praticas">Encontre uma prática</h2>
@@ -77,7 +495,628 @@
     </div>
   </footer>
 
-  <script src="config.js"></script>
-  <script src="assets/app.js"></script>
-</body>
-</html>
+<script type="text/plain" id="dados-praticas">
+titulo,categoria,publico,situacao,estrategia,materiais,tempo,autor,foto
+Régua de leitura e texto ampliado,Leitura e escrita,Dislexia / dificuldade de leitura,"O aluno se perde nas linhas, pula palavras ou cansa rápido ao ler.","Ofereça uma régua ou tira de papel colorido para acompanhar a linha.
+Use fonte sem serifa (Arial, Verdana), tamanho 14 ou maior e espaçamento 1,5.
+Divida textos longos em blocos curtos, com uma pergunta ao final de cada bloco.
+Permita que a compreensão seja avaliada também de forma oral.","Régua, tira de papel colorido, texto impresso ampliado",5 min de preparo,
+Alfabeto móvel para formar palavras,Leitura e escrita,Alfabetização / dificuldade de escrita,O aluno não consegue registrar palavras no caderno e trava diante da folha em branco.,"Entregue letras móveis e peça que monte palavras a partir de uma figura.
+Comece com palavras de sílabas simples (BO-LA, CA-SA) e avance aos poucos.
+Depois de montar, o aluno copia a palavra para o caderno.
+Comemore cada palavra formada: o objetivo é reduzir o medo de errar.","Alfabeto móvel (pode ser feito com tampinhas ou papelão), figuras",15 a 20 min,
+Material concreto antes do papel,Matemática,Discalculia / dificuldade em matemática,O aluno não entende as operações quando elas aparecem só no papel.,"Apresente a operação primeiro com objetos (tampinhas, palitos, material dourado).
+Em seguida, desenhe a mesma operação.
+Só depois escreva a conta com números.
+Deixe uma reta numérica colada na carteira como apoio permanente.","Tampinhas, palitos, material dourado, reta numérica",Durante a aula,
+Funções ativas na sala,TDAH e atenção,TDAH / agitação,O aluno não consegue ficar sentado e se levanta o tempo todo durante a explicação.,"Dê ao aluno tarefas com movimento: distribuir material, apagar o quadro, levar recados.
+Combine pausas curtas de movimento a cada 15 ou 20 minutos.
+Posicione-o perto do professor e longe de portas e janelas.
+Elogie o comportamento esperado assim que ele acontecer.",Nenhum,Imediato,
+Instruções curtas com checklist,TDAH e atenção,TDAH / dificuldade de organização,"O aluno começa a atividade e não termina, ou esquece o que foi pedido.","Dê uma instrução por vez, olhando nos olhos do aluno.
+Peça que ele repita com as próprias palavras o que precisa fazer.
+Entregue um checklist com as etapas da atividade para ele ir marcando.
+Divida atividades longas em partes menores, com entrega de cada parte.",Checklist impresso ou escrito no caderno,5 min de preparo,
+Rotina visual com antecipação,TEA,Autismo (TEA),O aluno fica desorganizado ou entra em crise quando a rotina muda.,"Monte um quadro de rotina com imagens (pictogramas) das atividades do dia.
+Revise a rotina com o aluno no início da aula.
+Avise com antecedência qualquer mudança e mostre no quadro o que muda.
+Use um marcador (seta ou prendedor) para indicar a atividade atual.","Pictogramas impressos, cartolina, velcro ou prendedores",30 min de preparo (uma vez),
+Cantinho da calma,TEA,Autismo (TEA) / sobrecarga sensorial,"O aluno se incomoda com barulho e luz e reage com choro, gritos ou fuga.","Reserve um espaço tranquilo na sala com almofada e objetos de regulação.
+Combine com o aluno um sinal (cartão ou gesto) para pedir para ir ao cantinho.
+Ofereça abafador de ruído em momentos barulhentos.
+O cantinho não é castigo: é um lugar para se reorganizar e voltar.","Almofada, bolinha de apertar, abafador de ruído, cartão de pedido",Montagem única,
+Escolhas limitadas e combinados,Comportamento,TOD / comportamento opositor,"O aluno recusa as tarefas, desafia o professor, entra em confronto ou tem reações agressivas.","Ofereça duas opções aceitáveis em vez de uma ordem: ""Você prefere começar pela leitura ou pelo desenho?""
+Construa os combinados da turma junto com os alunos e deixe-os visíveis.
+Elogie comportamentos específicos (""Você terminou a primeira parte sozinho"").
+Converse sobre o ocorrido em particular, depois que ele estiver calmo, nunca na frente da turma.",Cartaz de combinados,Contínuo,
+Atividade adaptada no mesmo tema,Deficiência intelectual,Deficiência intelectual,O aluno não acompanha o conteúdo da turma e fica isolado com outra atividade.,"Mantenha o mesmo tema da turma, mas reduza a complexidade da tarefa.
+Use muito apoio visual: imagens, cores e exemplos prontos.
+Troque perguntas abertas por múltipla escolha, ligar ou completar.
+Faça-o participar da correção coletiva junto com a turma.","Atividade impressa adaptada, imagens",20 min de preparo,
+Desafios de aprofundamento,Altas habilidades,Altas habilidades / superdotação,"O aluno termina tudo muito rápido, fica entediado e atrapalha a aula.","Tenha uma caixa de desafios extras sobre o tema da aula.
+Proponha pequenos projetos de pesquisa a partir do interesse dele.
+Dê a ele o papel de monitor em atividades de grupo, com cuidado para não sobrecarregá-lo.
+Valorize a qualidade e a criatividade, não só a velocidade.",Caixa com fichas de desafio,Preparo contínuo,
+Coensino em estações,Ensino colaborativo,Toda a turma,"Há dois professores na sala, mas um fica só ""acompanhando"" o aluno com deficiência.","Planejem a aula juntos: professor regente e professor de educação especial.
+Dividam a turma em estações de atividade; cada professor conduz uma estação.
+Os grupos são mistos, então o aluno com deficiência não fica separado.
+Reservem 10 minutos por semana para avaliar juntos o que funcionou.",Planejamento conjunto,10 min por semana de planejamento,
+Avaliação em vários formatos,Ensino colaborativo,Toda a turma,A prova escrita não mostra o que o aluno realmente aprendeu.,"Ofereça outras formas de mostrar o que aprendeu: oral, desenho, maquete, apresentação.
+Leia as questões em voz alta para quem tem dificuldade de leitura.
+Aumente o tempo de prova ou divida-a em dois momentos.
+Avalie o avanço do aluno em relação a ele mesmo, não só em relação à turma.",Varia conforme o formato,Planejamento da avaliação,
+
+</script>
+  <script>
+// Configuração do site. Edite só os textos entre aspas.
+window.CONFIG = {
+  // Link da planilha de respostas do Google Forms, publicada como CSV
+  // (Arquivo > Compartilhar > Publicar na Web > CSV).
+  // Enquanto estiver vazio, o site usa o arquivo data/praticas.csv.
+  planilhaCSV: "",
+
+  // Link público de um formulário para outros professores sugerirem práticas (opcional).
+  formularioSugestao: "",
+
+  // Instagram do projeto. Enquanto estiver vazio, o rodapé mostra "Instagram: em breve!".
+  instagram: "",
+
+  // Contador de visitas (GoatCounter, grátis e sem cookies). Coloque só o código
+  // escolhido no cadastro: se o endereço for https://meusite.goatcounter.com, o código é "meusite".
+  // Enquanto estiver vazio, nada é contado e a parte "Acompanhe o projeto" fica escondida.
+  // No GoatCounter, ligue também: Settings > "Allow adding visitor counts on your website".
+  analytics: "previa",
+
+  // Atalhos que aparecem embaixo da busca: [texto do botão, palavras buscadas].
+  atalhosBusca: [
+    ["Não fica sentado", "fica sentado"],
+    ["Crises e choro", "crise choro"],
+    ["Dificuldade para ler", "leitura"],
+    ["Agressividade", "agressivo"],
+    ["Não termina a tarefa", "termina"],
+    ["Autismo", "autismo"],
+  ],
+
+
+  // Frase de propósito, em destaque. Trechos entre *asteriscos* ganham marca-texto.
+  proposito: "Meu propósito é encontrar caminhos para que cada criança possa aprender, porque *todos são capazes de aprender* quando encontram o caminho certo!",
+
+  // Mensagem de boas-vindas (cada item é um parágrafo).
+  boasVindas: [
+    "Seja muito bem-vindo a este espaço!",
+    "Sou educadora apaixonada pela aprendizagem e pelo universo das crianças. Este espaço foi criado para compartilhar atividades pedagógicas, ideias, estratégias e materiais educativos pensados especialmente para tornar a aprendizagem mais significativa, prazerosa e acessível.",
+    "Acredito que cada criança aprende de uma maneira e no seu próprio tempo. Por isso, meu olhar psicopedagógico busca valorizar as potencialidades de cada aluno, principalmente daqueles que apresentam dificuldades no processo de aprendizagem.",
+    "Que possamos compartilhar ideias, experiências e possibilidades para tornar a educação cada vez mais inclusiva, afetiva e significativa!",
+  ],
+
+  // Galeria "Na prática": fotos do trabalho em sala (pasta fotos/).
+  // Exemplo: { arquivo: "fotos/rotina-visual.jpg", legenda: "Quadro de rotina com pictogramas" },
+  galeria: [
+  ],
+};
+
+</script>
+  <script>
+(function () {
+  const cfg = window.CONFIG || {};
+  const COLUNAS = ["titulo", "categoria", "publico", "situacao", "estrategia", "materiais", "tempo", "autor", "foto"];
+  let praticas = [];
+  let categoriaAtiva = "Todas";
+
+  const $ = (id) => document.getElementById(id);
+
+  // One crayon color per category; new categories take the next free color.
+  const CORES_FIXAS = {
+    "leitura e escrita": "--c-ceu",
+    "matematica": "--c-sol",
+    "tdah e atencao": "--c-tangerina",
+    "tea": "--c-lilas",
+    "comportamento": "--c-coral",
+    "deficiencia intelectual": "--c-menta",
+    "altas habilidades": "--c-rosa",
+    "ensino colaborativo": "--c-turquesa",
+  };
+  const PALETA = ["--c-ceu", "--c-sol", "--c-tangerina", "--c-lilas", "--c-coral", "--c-menta", "--c-rosa", "--c-turquesa"];
+  const coresExtras = {};
+  const estiloCor = (categoria) => `--cor: ${corDa(categoria)}; --cor-ink: ${corDa(categoria).replace(/\)$/, "-ink)")}`;
+  function corDa(categoria) {
+    const chave = normalizar(categoria);
+    if (CORES_FIXAS[chave]) return `var(${CORES_FIXAS[chave]})`;
+    if (!coresExtras[chave]) coresExtras[chave] = PALETA[Object.keys(coresExtras).length % PALETA.length];
+    return `var(${coresExtras[chave]})`;
+  }
+
+  // CSV parser that handles quotes, commas, and line breaks inside fields.
+  function parseCSV(texto) {
+    const linhas = [];
+    let linha = [], campo = "", aspas = false;
+    for (let i = 0; i < texto.length; i++) {
+      const c = texto[i];
+      if (aspas) {
+        if (c === '"' && texto[i + 1] === '"') { campo += '"'; i++; }
+        else if (c === '"') aspas = false;
+        else campo += c;
+      } else if (c === '"') aspas = true;
+      else if (c === ",") { linha.push(campo); campo = ""; }
+      else if (c === "\n" || c === "\r") {
+        if (c === "\r" && texto[i + 1] === "\n") i++;
+        linha.push(campo); linhas.push(linha); linha = []; campo = "";
+      } else campo += c;
+    }
+    if (campo || linha.length) { linha.push(campo); linhas.push(linha); }
+    return linhas;
+  }
+
+  // Header names accepted for each column. Matching is by prefix, so a
+  // Google Forms question like "Título da prática" maps to "titulo".
+  const APELIDOS = {
+    titulo: ["titulo", "nomedapratica"],
+    categoria: ["categoria"],
+    publico: ["publico", "paraquem"],
+    situacao: ["situacao", "qualasituacao", "oqueacontece"],
+    estrategia: ["estrategia", "comofazer", "passo"],
+    materiais: ["materia"],
+    tempo: ["tempo"],
+    autor: ["autor", "contribu", "seunome"],
+    foto: ["foto", "imagem"],
+  };
+
+  function paraObjetos(linhas) {
+    const cab = linhas.shift().map((h) => normalizar(h).replace(/[^a-z0-9]/g, ""));
+    const indice = Object.fromEntries(COLUNAS.map((col) =>
+      [col, cab.findIndex((h) => APELIDOS[col].some((a) => h.startsWith(a)))]));
+    return linhas
+      .map((l) => Object.fromEntries(COLUNAS.map((col) => [col, indice[col] < 0 ? "" : (l[indice[col]] || "").trim()])))
+      .filter((p) => p.titulo);
+  }
+
+  function normalizar(s) {
+    return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  }
+
+  function el(tag, attrs, ...filhos) {
+    const n = document.createElement(tag);
+    Object.entries(attrs || {}).forEach(([k, v]) => (k === "class" ? (n.className = v) : n.setAttribute(k, v)));
+    filhos.flat().forEach((f) => f != null && n.append(f));
+    return n;
+  }
+
+  // Wraps each letter in a span so titles can bounce letter by letter on hover.
+  // Words stay unbroken, and screen readers get the plain text via aria-label.
+  function letrasAnimadas(alvo) {
+    if (!alvo || alvo.dataset.animado) return alvo;
+    alvo.dataset.animado = "1";
+    alvo.setAttribute("aria-label", alvo.textContent.trim());
+    let n = 0;
+    const percorrer = (no) => {
+      [...no.childNodes].forEach((filho) => {
+        if (filho.nodeType === Node.TEXT_NODE) {
+          const frag = document.createDocumentFragment();
+          filho.textContent.split(/(\s+)/).forEach((parte) => {
+            if (!parte) return;
+            if (/^\s+$/.test(parte)) { frag.append(parte); return; }
+            const palavra = el("span", { class: "palavra", "aria-hidden": "true" });
+            [...parte].forEach((ch) => palavra.append(el("span", { class: "letra", style: `--i: ${n++}` }, ch)));
+            frag.append(palavra);
+          });
+          filho.replaceWith(frag);
+        } else if (filho.nodeType === Node.ELEMENT_NODE && filho.tagName !== "svg") {
+          percorrer(filho);
+        }
+      });
+    };
+    percorrer(alvo);
+    return alvo;
+  }
+
+  // Touch-friendly animations: a tapped letter jumps, and titles wave when
+  // they scroll into view or when their card is tapped.
+  const semAnimacao = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function reiniciarClasse(alvo, classe) {
+    alvo.classList.remove(classe);
+    void alvo.offsetWidth;
+    alvo.classList.add(classe);
+  }
+
+  function pularLetra(letra) {
+    if (semAnimacao) return;
+    letra.style.setProperty("--cor-pulo", `var(${PALETA[Math.floor(Math.random() * PALETA.length)]})`);
+    reiniciarClasse(letra, "pula");
+  }
+
+  function ondaNoTitulo(titulo) {
+    if (!semAnimacao && titulo) reiniciarClasse(titulo, "onda");
+  }
+
+  const observadorOnda = "IntersectionObserver" in window ? new IntersectionObserver((entradas) => {
+    entradas.forEach((e) => {
+      if (!e.isIntersecting) return;
+      ondaNoTitulo(e.target);
+      observadorOnda.unobserve(e.target);
+    });
+  }, { threshold: 0.8 }) : null;
+
+  function observarOnda(titulo) {
+    if (observadorOnda && !semAnimacao) observadorOnda.observe(titulo);
+  }
+
+  // ---- Public counters (read from GoatCounter; needs "Allow adding visitor counts on your website") ----
+  const caminhoDaPratica = (titulo) => "/pratica/" + titulo;
+  const CAMINHO_ACOMPANHAR = "/acompanhar";
+  const cacheContagem = new Map();
+  let filaContagem = Promise.resolve();
+
+  // Reads one count, one request at a time. Resolves to a number, or null when unknown.
+  function lerContagem(caminho) {
+    if (!cfg.analytics) return Promise.resolve(null);
+    if (cacheContagem.has(caminho)) return cacheContagem.get(caminho);
+    const url = `https://${cfg.analytics}.goatcounter.com/counter/${encodeURIComponent(caminho)}.json`;
+    const pedido = filaContagem = filaContagem.then(() =>
+      fetch(url)
+        .then((r) => (r.ok ? r.json() : null))
+        .then((j) => (j && j.count != null ? parseInt(String(j.count).replace(/\D/g, ""), 10) || 0 : null))
+        .catch(() => null));
+    cacheContagem.set(caminho, pedido);
+    return pedido;
+  }
+
+  const formatar = (n) => n.toLocaleString("pt-BR");
+
+  const observadorOlhos = cfg.analytics && "IntersectionObserver" in window ? new IntersectionObserver((entradas) => {
+    entradas.forEach((e) => {
+      if (!e.isIntersecting) return;
+      observadorOlhos.unobserve(e.target);
+      const olho = e.target.querySelector(".olhos");
+      if (!olho) return;
+      lerContagem(olho.dataset.caminho).then((n) => {
+        if (n !== null) {
+          olho.querySelector("b").textContent = formatar(n);
+          olho.querySelector(".olhos-texto").textContent = n === 1 ? " pessoa visualizou" : " pessoas visualizaram";
+          olho.hidden = false;
+        }
+      });
+    });
+  }, { rootMargin: "200px" }) : null;
+
+  function iniciarAcompanhe() {
+    if (!cfg.analytics) return;
+    $("acompanhe").hidden = false;
+
+    let jaAcompanha = false;
+    try { jaAcompanha = localStorage.getItem("pi-acompanha") === "1"; } catch (e) { /* storage blocked */ }
+    let totalAcompanham = null;
+
+    const pintar = () => {
+      const botao = $("btn-acompanhar");
+      botao.setAttribute("aria-pressed", String(jaAcompanha));
+      botao.disabled = jaAcompanha;
+      $("rotulo-acompanhar").textContent = jaAcompanha ? "Você já acompanha ✓" : "Quero acompanhar";
+      const mostrar = totalAcompanham !== null;
+      $("bloco-acompanham").hidden = !mostrar;
+      if (mostrar) {
+        $("n-acompanham").textContent = formatar(totalAcompanham);
+        $("leg-acompanham").textContent = totalAcompanham === 1 ? "pessoa acompanha" : "pessoas acompanham";
+      }
+    };
+    pintar();
+
+    $("btn-acompanhar").addEventListener("click", () => {
+      if (jaAcompanha) return;
+      jaAcompanha = true;
+      try { localStorage.setItem("pi-acompanha", "1"); } catch (e) { /* storage blocked */ }
+      registrar(CAMINHO_ACOMPANHAR, "Acompanhar o projeto", false);
+      if (totalAcompanham !== null) totalAcompanham += 1;
+      pintar();
+    });
+
+    lerContagem(CAMINHO_ACOMPANHAR).then((n) => { if (n !== null) { totalAcompanham = n + (jaAcompanha && n === 0 ? 1 : 0); pintar(); } });
+    lerContagem(location.pathname).then((n) => {
+      if (n !== null) { $("n-visitas").textContent = formatar(n); $("bloco-visitas").hidden = false; }
+    });
+  }
+
+  // Eye badge: how many people opened this practice. Stays hidden until a real count above zero is known.
+  function olhosDaPratica(titulo) {
+    const span = el("span", { class: "olhos", hidden: "", title: "Pessoas que visualizaram esta prática", "data-caminho": caminhoDaPratica(titulo) });
+    span.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M1.5 12S5.5 5 12 5s10.5 7 10.5 7-4 7-10.5 7S1.5 12 1.5 12z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="12" r="3.2" fill="currentColor"/></svg><b></b><span class="olhos-texto"></span>';
+    return span;
+  }
+
+  function cartao(p) {
+    const passos = p.estrategia.split(/\n+/).map((s) => s.trim()).filter(Boolean);
+    return el("article", { class: "card", id: "pratica-" + praticas.indexOf(p), "data-titulo": p.titulo, style: estiloCor(p.categoria) },
+      p.foto ? el("img", { class: "card-foto", src: p.foto, alt: p.titulo, loading: "lazy" }) : null,
+      el("div", { class: "card-topo" },
+        el("span", { class: "tag" }, p.categoria || "Geral"),
+        olhosDaPratica(p.titulo)),
+      letrasAnimadas(el("h3", {}, p.titulo)),
+      p.publico ? el("p", { class: "publico" }, p.publico) : null,
+      p.situacao ? el("p", { class: "situacao" }, el("b", {}, "a situação"), p.situacao) : null,
+      el("details", {},
+        el("summary", {}, "Ver estratégia"),
+        el("ol", {}, passos.map((s) => el("li", {}, s))),
+        el("p", { class: "meta" },
+          p.materiais ? el("span", {}, el("b", {}, "Materiais: "), p.materiais) : null,
+          p.tempo ? el("span", {}, el("b", {}, "Tempo: "), p.tempo) : null,
+          p.autor ? el("span", {}, el("b", {}, "Por: "), p.autor) : null)
+      )
+    );
+  }
+
+  function renderFiltros() {
+    const cats = ["Todas", ...new Set(praticas.map((p) => p.categoria).filter(Boolean))];
+    $("filtros").replaceChildren(...cats.map((c) => {
+      const attrs = { class: "chip", type: "button", "aria-pressed": String(c === categoriaAtiva) };
+      if (c !== "Todas") attrs.style = estiloCor(c);
+      const b = el("button", attrs, c);
+      b.onclick = () => { categoriaAtiva = c; renderFiltros(); renderLista(); };
+      return b;
+    }));
+  }
+
+  // Common Portuguese words that say nothing about the situation.
+  const PALAVRAS_VAZIAS = new Set(("a o as os um uma uns umas de da do das dos em na no nas nos por para pra com sem que " +
+    "e ou se ele ela eles elas meu minha seu sua nao sim muito mais menos esta estao fica ficam tem ter ser sao " +
+    "aluno aluna alunos crianca criancas filho filha consegue").split(" "));
+
+  // Short word stem so "fica" finds "ficar" and "sentado" finds "sentar".
+  const raiz = (palavra) => palavra.slice(0, Math.max(5, palavra.length - 2));
+
+  // Everyday words teachers use, pointed at words the practices actually contain.
+  const SINONIMOS = {
+    bate: "agress", agride: "agress", agressivo: "agress", briga: "confronto", birra: "crise",
+    grita: "gritos", chora: "choro", foge: "fuga", autista: "autismo", hiperativo: "tdah",
+    agitado: "agitacao", desatento: "atencao", distraido: "atencao", superdotado: "superdotacao",
+    ler: "leitura", escrever: "escrita", conta: "operacoes", contas: "operacoes", numeros: "matematica",
+  };
+
+  function termosDaBusca() {
+    return normalizar($("busca").value)
+      .split(/[^a-z0-9]+/)
+      .filter((w) => (w.length >= 3 || SINONIMOS[w]) && !PALAVRAS_VAZIAS.has(w))
+      .map((w) => raiz(SINONIMOS[w] || w));
+  }
+
+  function pontuacao(p, termos) {
+    const palavras = normalizar(COLUNAS.map((c) => p[c]).join(" ")).split(/[^a-z0-9]+/);
+    return termos.filter((t) => palavras.some((w) => w.startsWith(t))).length;
+  }
+
+  function praticasEncontradas() {
+    const termos = termosDaBusca();
+    let itens = praticas.filter((p) => categoriaAtiva === "Todas" || p.categoria === categoriaAtiva);
+    if (termos.length) {
+      itens = itens
+        .map((p) => ({ p, n: pontuacao(p, termos) }))
+        .filter((x) => x.n > 0)
+        .sort((a, b) => b.n - a.n)
+        .map((x) => x.p);
+    }
+    return itens;
+  }
+
+  function renderLista() {
+    const itens = praticasEncontradas();
+    $("lista").replaceChildren(...itens.map(cartao));
+    $("lista").querySelectorAll(".card h3").forEach(observarOnda);
+    if (observadorOlhos) $("lista").querySelectorAll(".card").forEach((c) => observadorOlhos.observe(c));
+    $("vazio").hidden = itens.length > 0;
+    $("contagem").textContent = itens.length === 1 ? "1 prática" : itens.length + " práticas";
+    renderSugestoes(itens);
+  }
+
+  // Live suggestions under the search box while the person types.
+  function renderSugestoes(itens) {
+    const digitado = $("busca").value.trim();
+    const aberto = digitado.length >= 2 && document.activeElement && $("form-busca").parentNode.contains(document.activeElement);
+    $("atalhos").hidden = digitado !== "";
+    if (!aberto) { fecharSugestoes(); return; }
+
+    const linhas = itens.slice(0, 5).map((p) => {
+      const b = el("button", { type: "button", class: "sugestao", role: "option", style: estiloCor(p.categoria) },
+        el("span", { class: "sugestao-titulo" }, p.titulo),
+        el("span", { class: "sugestao-info" }, p.categoria + (p.situacao ? " · " + p.situacao : "")));
+      b.addEventListener("click", () => abrirPratica(p));
+      return b;
+    });
+    if (itens.length) {
+      const todas = el("button", { type: "button", class: "sugestao-todas" },
+        itens.length === 1 ? "Ver a prática encontrada ↓" : `Ver as ${itens.length} práticas encontradas ↓`);
+      todas.addEventListener("click", irParaResultados);
+      linhas.push(todas);
+    } else {
+      linhas.push(el("p", { class: "sugestao-vazia" }, "Nada encontrado com essas palavras. Tente descrever de outro jeito, ou use um dos atalhos abaixo."));
+      $("atalhos").hidden = false;
+    }
+    $("sugestoes").replaceChildren(...linhas);
+    $("sugestoes").hidden = false;
+    $("busca").setAttribute("aria-expanded", "true");
+  }
+
+  function fecharSugestoes() {
+    $("sugestoes").hidden = true;
+    $("busca").setAttribute("aria-expanded", "false");
+  }
+
+  function irParaResultados() {
+    fecharSugestoes();
+    $("busca").blur();
+    $("titulo-praticas").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function abrirPratica(p) {
+    fecharSugestoes();
+    $("busca").blur();
+    const card = $("pratica-" + praticas.indexOf(p));
+    if (!card) return;
+    card.querySelector("details").open = true;
+    card.scrollIntoView({ behavior: "smooth", block: "center" });
+    card.classList.remove("destacado");
+    void card.offsetWidth;
+    card.classList.add("destacado");
+  }
+
+  function renderAtalhos() {
+    const atalhos = cfg.atalhosBusca || [];
+    if (!atalhos.length) { $("atalhos").remove(); return; }
+    atalhos.forEach(([rotulo, busca]) => {
+      const b = el("button", { type: "button", class: "atalho" }, rotulo);
+      b.addEventListener("click", () => { $("busca").value = busca; renderLista(); irParaResultados(); });
+      $("atalhos").append(b);
+    });
+  }
+
+  async function carregar() {
+    const embutido = document.getElementById("dados-praticas");
+    if (embutido && !cfg.planilhaCSV) return paraObjetos(parseCSV(embutido.textContent.trim()));
+    const fontes = [cfg.planilhaCSV, "data/praticas.csv"].filter(Boolean);
+    for (const url of fontes) {
+      try {
+        const r = await fetch(url, { cache: "no-store" });
+        if (!r.ok) continue;
+        const lista = paraObjetos(parseCSV(await r.text()));
+        if (lista.length) return lista;
+      } catch (e) { /* try the next source */ }
+    }
+    return [];
+  }
+
+  if (cfg.proposito) {
+    // Text between *asterisks* gets a highlighter mark.
+    $("proposito-texto").replaceChildren(...cfg.proposito.split("*").map((t, i) => (i % 2 ? el("mark", {}, t) : t)));
+    $("proposito").hidden = false;
+  }
+
+  const boasVindas = cfg.boasVindas || [];
+  if (boasVindas.length) {
+    const [saudacao, ...paragrafos] = boasVindas;
+    $("boas-vindas-texto").replaceChildren(
+      letrasAnimadas(el("h2", {}, saudacao)),
+      ...paragrafos.map((t) => el("p", {}, t)));
+    $("boas-vindas").hidden = false;
+  }
+
+  const galeria = cfg.galeria || [];
+  if (galeria.length) {
+    $("galeria").replaceChildren(...galeria.map((f) =>
+      el("figure", {},
+        el("img", { src: f.arquivo, alt: f.legenda || "", loading: "lazy" }),
+        f.legenda ? el("figcaption", {}, f.legenda) : null)));
+    $("na-pratica").hidden = false;
+  }
+  if (cfg.formularioSugestao) { $("link-form").href = cfg.formularioSugestao; $("sugerir").hidden = false; }
+  if (cfg.instagram) {
+    $("link-insta").href = cfg.instagram;
+    $("link-insta").textContent = "Siga no Instagram";
+    $("link-insta").hidden = false;
+  } else {
+    $("insta-em-breve").hidden = false;
+  }
+
+  document.querySelectorAll("h1, main h2").forEach((t) => { letrasAnimadas(t); observarOnda(t); });
+
+  // Tap or drag a finger over a letter to make it jump (also works with a click).
+  const letraSob = (e) => {
+    const alvo = document.elementFromPoint(e.clientX, e.clientY);
+    return alvo && alvo.classList.contains("letra") ? alvo : null;
+  };
+  let ultimaLetra = null;
+  document.addEventListener("pointerdown", (e) => {
+    const letra = letraSob(e);
+    if (letra) { pularLetra(letra); ultimaLetra = letra; }
+    const card = e.pointerType !== "mouse" && e.target.closest && e.target.closest(".card");
+    if (card && !letra) ondaNoTitulo(card.querySelector("h3"));
+  });
+  document.addEventListener("pointermove", (e) => {
+    if (e.pointerType === "mouse" || !e.pressure) return;
+    const letra = letraSob(e);
+    if (letra && letra !== ultimaLetra) { pularLetra(letra); ultimaLetra = letra; }
+  });
+  document.addEventListener("animationend", (e) => {
+    if (e.target.classList.contains("pula")) e.target.classList.remove("pula");
+    if (e.animationName === "onda" && e.target.classList.contains("letra")) {
+      const titulo = e.target.closest(".onda");
+      if (titulo && e.target === titulo.querySelector(".letra:last-of-type") ) titulo.classList.remove("onda");
+    }
+  });
+  // Visit counter (GoatCounter: free, no cookies, no personal data). Off until cfg.analytics is set.
+  // Counted: visits, which practice is opened, which category is chosen, and "Quero acompanhar" taps.
+  // Search text is never sent.
+  if (cfg.analytics) {
+    const contador = document.createElement("script");
+    contador.async = true;
+    contador.dataset.goatcounter = `https://${cfg.analytics}.goatcounter.com/count`;
+    contador.src = "https://gc.zgo.at/count.js";
+    document.head.append(contador);
+  }
+
+  function registrar(caminho, titulo, evento) {
+    if (cfg.analytics && window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: caminho, title: titulo, event: !!evento });
+    }
+  }
+
+  const praticasLidas = new Set();
+  document.addEventListener("toggle", (e) => {
+    const d = e.target;
+    if (d.tagName !== "DETAILS" || !d.open) return;
+    const card = d.closest(".card");
+    const titulo = card && card.dataset.titulo;
+    if (titulo && !praticasLidas.has(titulo)) {
+      praticasLidas.add(titulo);
+      registrar(caminhoDaPratica(titulo), titulo, false);
+    }
+  }, true);
+  $("filtros").addEventListener("click", (e) => {
+    const chip = e.target.closest(".chip");
+    if (chip) registrar("categoria/" + chip.textContent, chip.textContent, true);
+  });
+
+  iniciarAcompanhe();
+
+  // Day / night toggle. Starts from the phone's setting; a choice is remembered on this device.
+  (function iniciarTema() {
+    const raiz = document.documentElement, botao = $("tema");
+    const escuroAgora = () => (raiz.dataset.theme ? raiz.dataset.theme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches);
+    const pintar = () => {
+      const escuro = escuroAgora();
+      botao.dataset.modo = escuro ? "dark" : "light";
+      botao.setAttribute("aria-label", escuro ? "Mudar para o modo diurno" : "Mudar para o modo noturno");
+    };
+    botao.addEventListener("click", () => {
+      const novo = escuroAgora() ? "light" : "dark";
+      raiz.setAttribute("data-theme", novo);
+      try { localStorage.setItem("pi-tema", novo); } catch (e) { /* storage blocked */ }
+      pintar();
+    });
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", pintar);
+    new MutationObserver(pintar).observe(raiz, { attributes: true, attributeFilter: ["data-theme"] });
+    pintar();
+  })();
+
+  renderAtalhos();
+  $("busca").addEventListener("input", renderLista);
+  $("busca").addEventListener("focus", () => renderSugestoes(praticasEncontradas()));
+  $("busca").addEventListener("keydown", (e) => {
+    if (e.key === "Escape") fecharSugestoes();
+    if (e.key === "ArrowDown") { const primeira = $("sugestoes").querySelector("button"); if (primeira) { e.preventDefault(); primeira.focus(); } }
+  });
+  $("sugestoes").addEventListener("keydown", (e) => {
+    const botoes = [...$("sugestoes").querySelectorAll("button")];
+    const i = botoes.indexOf(document.activeElement);
+    if (e.key === "ArrowDown" && i < botoes.length - 1) { e.preventDefault(); botoes[i + 1].focus(); }
+    if (e.key === "ArrowUp") { e.preventDefault(); (i > 0 ? botoes[i - 1] : $("busca")).focus(); }
+    if (e.key === "Escape") { fecharSugestoes(); $("busca").focus(); }
+  });
+  document.addEventListener("pointerdown", (e) => {
+    if (!$("form-busca").parentNode.contains(e.target)) fecharSugestoes();
+  });
+  $("form-busca").addEventListener("submit", (e) => { e.preventDefault(); renderLista(); irParaResultados(); });
+
+  carregar().then((lista) => { praticas = lista; renderFiltros(); renderLista(); });
+})();
+
+</script>
+
+</body></html>
